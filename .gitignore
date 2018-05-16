@@ -1,0 +1,5 @@
+node_modules
+dist
+test
+src/admin.js
+src/gettext.js

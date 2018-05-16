@@ -1,0 +1,12 @@
+{
+    "name": "snippets",
+    "version": "1.0.0",
+    "description": "Base para Snippets de Código",
+    "scripts": {},
+    "author": "Wildiney Di Masi",
+    "licence": "MIT",
+    "dependencies": {
+        "gulp": "latest",
+        "gulp-bookmarklet": "latest"
+    }
+}
