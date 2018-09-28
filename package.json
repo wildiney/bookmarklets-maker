@@ -5,8 +5,9 @@
     "scripts": {},
     "author": "Wildiney Di Masi",
     "licence": "MIT",
-    "dependencies": {
-        "gulp": "latest",
-        "gulp-bookmarklet": "latest"
+    "dependencies": {},
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "gulp-bookmarklet": "^1.0.0"
     }
 }
