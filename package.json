@@ -1,10 +1,13 @@
 {
     "name": "snippets",
+    "repository": "https://github.com/wildiney",
     "version": "1.0.0",
     "description": "Base para Snippets de Código",
-    "scripts": {},
+    "scripts": {
+        "start": "gulp"
+    },
     "author": "Wildiney Di Masi",
-    "licence": "MIT",
+    "license": "MIT",
     "dependencies": {},
     "devDependencies": {
         "gulp": "^3.9.1",

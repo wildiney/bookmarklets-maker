@@ -3,21 +3,25 @@ function init() {
   var t = 'iframe';
   var titulo = document.title;
   var pageLink = document.URL;
-  var url = 'https://wild-bookmarklet.firebaseapp.com/add';
+  var url = 'https://services.slicedpixel.com/bookmarks/create/';
   var metas = document.getElementsByTagName('meta');
   var site_name = '';
   var description = '';
+  var preview = '';
 
   // Nome do site
   for (var i = 0; i < metas.length; i++) {
     if (metas[i].getAttribute('property') === 'og:site_name') {
       site_name = metas[i].getAttribute('content');
     }
+    if (metas[i].getAttribute('property') === 'og:image') {
+      preview = metas[i].getAttribute('content');
+    }
     if (metas[i].name.toLowerCase() === 'description') {
-      description = metas[i].getAttribute('content');
+      description = metas[i].getAttribute('content').substring(0,100);
     }
     if (metas[i].getAttribute('property') === 'og:description') {
-      description = metas[i].getAttribute('content');
+      description = metas[i].getAttribute('content').substring(0,100);
     }
   }
   if (site_name === '') {
@@ -36,7 +40,7 @@ function init() {
   b.style.top = '0';
   b.style.left = '0';
   b.style.opacity = 0.75;
-  b.onclick = function() {
+  b.onclick = function () {
     location.reload();
   };
 
@@ -49,9 +53,15 @@ function init() {
   n.style.height = '100%';
   n.style.zIndex = '999999996';
 
+  var newurl = url +
+    '?titulo=' + encodeURIComponent(titulo) +
+    '&url=' + encodeURIComponent(pageLink) +
+    '&site_name=' + encodeURIComponent(site_name) +
+    '&description=' + encodeURIComponent(description);
+  
   var s = e.createElement('iframe');
   s.id = t;
-  s.src = url +'?site=' +     encodeURIComponent(titulo) +    '&url=' +    encodeURIComponent(pageLink) +    '&site_name=' +    encodeURIComponent(site_name) +    '&description=' +    encodeURIComponent(description);
+  s.src = newurl.substring(0, 1000);
   s.style.position = 'absolute';
   s.style.top = '0px';
   s.style.left = '-400px';
