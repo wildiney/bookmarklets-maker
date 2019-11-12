@@ -1,16 +1,16 @@
-"use strict"
+const { dest, src, watch } = require('gulp');
+const bookmarklet = require('gulp-bookmarklet');
+const dir = {
+    src: 'src/*.js',
+    dist: 'dist/'
+}
 
-var gulp = require("gulp");
-var bookmarklet = require('gulp-bookmarklet');
-
-gulp.task('bookmark', function() {
-    return gulp.src('src/*.js')
+function bookmark() {
+    return src(dir.src)
         .pipe(bookmarklet())
-        .pipe(gulp.dest('dist'));
-});
+        .pipe(dest(dir.dist));
+}
 
-gulp.task('watch', function(){
-    gulp.watch('src/*.js',['bookmark']);
-})
-
-gulp.task('default',['bookmark', 'watch']);
+exports.default = ()=>{
+    watch(dir.src, bookmark);
+};

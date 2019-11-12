@@ -3,3 +3,5 @@ dist
 test
 src/admin.js
 src/gettext.js
+desktop.ini
+.DS_store
